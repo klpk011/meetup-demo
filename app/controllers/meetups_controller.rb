@@ -10,7 +10,7 @@ class MeetupsController < ApplicationController
   end
 
   def create
-    @meetup = Meetup.create(meetup_params)
+    @meetup = Meetup.new(meetup_params)
     @meetup.user = current_user
     if @meetup.save
       redirect_to meetups_path
@@ -23,7 +23,8 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @meetup.update(meetup_params)

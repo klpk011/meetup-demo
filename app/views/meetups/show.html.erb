@@ -1,0 +1,24 @@
+<div class="col-md-12">
+    <div class="pull-right">
+        <%= link_to("Edit", edit_meetup_path(@meetup), class: "btn btn-primary pull-right") %>
+    </div>
+    <h2 class="text-center" ><%= @meetup.title %></h2>
+    <p><b>聚会详情:</b><%= @meetup.description %></p>
+
+<h4 style="margin-top: 30px;">All Comments</h4>
+<% if @meetup.comments.empty? %>
+    <p>尚未有人留言</p>
+<% else %>
+    <% @floor = 1 %>
+    <% @meetup.comments.each do |comment| %>
+        <%= @floor %>楼
+        <div class="col-md-12">
+            <p><%= comment.message %></p>
+
+        </div>
+        <% @floor = @floor + 1 %>
+        <br>
+    <% end %>
+<% end %>
+</div>
+<%= render 'comment_form' %>

@@ -19,8 +19,10 @@
         <td><%= link_to(meetup.title,meetup_path(meetup)) %></td>
         <td><%= meetup.description %></td>
         <td>
-          <%= link_to("Edit", edit_meetup_path(meetup), class: "btn btn-sm btn-default") %>
-          <%= link_to("Delete", meetup_path(meetup), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?"} )%>
+          <% if current_user && current_user== meetup.user%>
+            <%= link_to("Edit", edit_meetup_path(meetup), class: "btn btn-sm btn-default") %>
+            <%= link_to("Delete", meetup_path(meetup), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?"} )%>
+          <% end %>
         </td>
       </tr>
       <% end %>
