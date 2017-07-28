@@ -21,8 +21,16 @@ class Api::V1::BaseController < ApplicationController
     if user && ActiveSupport::SecurityUtils.secure_compare(user.authenticatin_token, token)
       self.current_user = user
     else
-      return unanthenticated!
+      return unauthenticated!
     end
+  end
+
+  def unauthenticated!
+    api_error(status: 401)
+  end
+
+  def api_error(opts = {})
+    render nothing: true, status: pots[:status]
   end
 
 end
