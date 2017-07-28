@@ -38,7 +38,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'font-awesome-rails'
-gem 'rspec-rails', '~> 3.5.2'
+gem 'rspec-rails'
 gem 'capybara'
 gem 'rails-controller-testing'
 

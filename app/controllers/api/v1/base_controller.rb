@@ -30,7 +30,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def api_error(opts = {})
-    render nothing: true, status: pots[:status]
+    render nothing: true, status: opts[:status]
   end
 
 end
